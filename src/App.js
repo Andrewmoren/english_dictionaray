@@ -1,4 +1,5 @@
 import React from "react";
+import Result from "./Result";
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
           </div>
         </div>
       </form>
+
+      <Result />
     </div>
   );
 };
