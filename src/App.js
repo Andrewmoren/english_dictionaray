@@ -6,7 +6,9 @@ const App = () => {
       <h1>English Dictionary</h1>
 
       <form>
-        <div className="row"></div>
+        <div className="row">
+          <textarea name="" id="" cols="30" rows="4" placeholder="Enter text" />
+        </div>
       </form>
     </div>
   );
