@@ -5,15 +5,30 @@ const synth = window.speechSynthesis;
 
 const App = () => {
   const voices = useMemo(() => synth.getVoices(), []);
+  const [voiceSelected, setVoiceSelected] = useState("Google US English");
+  const [text, setText] = useState("");
+  const handleSpeech = () => {
+    if (!text.trim()) return;
+    console.log(text);
+  };
   return (
     <div className="container">
       <h1>English Dictionary</h1>
       <form>
         <div className="row">
-          <textarea name="" id="" cols="30" rows="4" placeholder="Enter text" />
+          <textarea
+            cols="30"
+            rows="4"
+            placeholder="Enter text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
           <div className="voices-icons">
             <div className="select-voices">
-              <select name="" id="">
+              <select
+                value={voiceSelected}
+                onChange={(e) => setVoiceSelected(e.target.value)}
+              >
                 {voices.map((voice) => (
                   <option key={voice.name} value={voice.name}>
                     {voice.name}
@@ -22,7 +37,7 @@ const App = () => {
               </select>
             </div>
 
-            <i class="fa-solid fa-volume-high" />
+            <i className="fa-solid fa-volume-high" onClick={handleSpeech} />
           </div>
         </div>
       </form>
