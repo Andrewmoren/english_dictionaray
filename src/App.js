@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Result from "./Result";
 
+const synth = window.speechSynthesis;
+
 const App = () => {
+  const voices = useMemo(() => synth.getVoices(), []);
   return (
     <div className="container">
       <h1>English Dictionary</h1>
-
       <form>
         <div className="row">
           <textarea name="" id="" cols="30" rows="4" placeholder="Enter text" />
           <div className="voices-icons">
             <div className="select-voices">
               <select name="" id="">
-                <option value="">English</option>
-                <option value="">English</option>
-                <option value="">English</option>
+                {voices.map((voice) => (
+                  <option key={voice.name} value={voice.name}>
+                    {voice.name}
+                  </option>
+                ))}
               </select>
             </div>
 

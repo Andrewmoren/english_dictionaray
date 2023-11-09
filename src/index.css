@@ -137,3 +137,7 @@ body {
 .container ul .contain .synonyms span:hover {
     color: #2681dc;
 }
+
+ ::-webkit-scrollbar {
+    display: none;
+ }
