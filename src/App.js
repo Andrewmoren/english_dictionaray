@@ -7,9 +7,14 @@ const App = () => {
   const voices = useMemo(() => synth.getVoices(), []);
   const [voiceSelected, setVoiceSelected] = useState("Google US English");
   const [text, setText] = useState("");
+  const startSpeech = (text) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    synth.speak(utterance);
+  };
+
   const handleSpeech = () => {
     if (!text.trim()) return;
-    console.log(text);
+    startSpeech();
   };
   return (
     <div className="container">
