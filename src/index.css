@@ -141,3 +141,7 @@ body {
  ::-webkit-scrollbar {
     display: none;
  }
+
+ .container form .row .voices-icons i.speak {
+    color: #2681dc;
+ }

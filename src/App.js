@@ -10,6 +10,8 @@ const App = () => {
   const [isSpeaking, setIsSpeaking] = useState("");
   const startSpeech = (text) => {
     const utterance = new SpeechSynthesisUtterance(text);
+    const voice = voices.find((voice) => voice.name === voiceSelected);
+    utterance.voice = voice;
     synth.speak(utterance);
   };
 
@@ -18,7 +20,14 @@ const App = () => {
     if (!synth.speaking) {
       startSpeech();
       setIsSpeaking("speak");
+    } else {
+      synth.cancel();
     }
+    setInterval(() => {
+      if (!synth.speaking) {
+        setIsSpeaking("");
+      }
+    }, 100);
   };
   return (
     <div className="container">
@@ -46,7 +55,10 @@ const App = () => {
               </select>
             </div>
 
-            <i className="fa-solid fa-volume-high" onClick={handleSpeech} />
+            <i
+              className={`fa-solid fa-volume-high ${isSpeaking}`}
+              onClick={handleSpeech}
+            />
           </div>
         </div>
       </form>
