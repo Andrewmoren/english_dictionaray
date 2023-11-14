@@ -19,7 +19,12 @@ const App = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-      });
+        setMeanings(result[0].meanings);
+        setPhonetics(result[0].phonetics);
+        setWord(result[0].word);
+        setError("");
+      })
+      .catch((err) => setError(err));
   };
 
   useEffect(() => {
@@ -83,7 +88,12 @@ const App = () => {
         </div>
       </form>
 
-      <Result />
+      <Result
+        word={word}
+        phonetics={phonetics}
+        meanings={meanings}
+        setText={setText}
+      />
     </div>
   );
 };
