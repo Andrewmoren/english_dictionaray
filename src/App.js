@@ -8,6 +8,21 @@ const App = () => {
   const [voiceSelected, setVoiceSelected] = useState("Google US English");
   const [text, setText] = useState("");
   const [isSpeaking, setIsSpeaking] = useState("");
+  const dictionaryApi = (text) => {
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${text}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
+
+  useEffect(() => {
+    if (!text.trim()) return;
+
+    dictionaryApi(text);
+  }, [text]);
+
   const startSpeech = (text) => {
     const utterance = new SpeechSynthesisUtterance(text);
     const voice = voices.find((voice) => voice.name === voiceSelected);
