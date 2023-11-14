@@ -8,6 +8,11 @@ const App = () => {
   const [voiceSelected, setVoiceSelected] = useState("Google US English");
   const [text, setText] = useState("");
   const [isSpeaking, setIsSpeaking] = useState("");
+  const [meanings, setMeanings] = useState([]);
+  const [phonetics, setPhonetics] = useState([]);
+  const [word, setWord] = useState("");
+  const [error, setError] = useState("");
+
   const dictionaryApi = (text) => {
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${text}`;
     fetch(url)
