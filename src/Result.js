@@ -19,11 +19,16 @@ const Result = ({ word, phonetics, meaning, setText }) => {
               <p key={index}>- {definitions.definitions}</p>
             ))}
           </div>
-
-          <div className="details synonyms">
-            <h3>Synonyms</h3>
-            <span>greeting, greeting, greeting</span>
-          </div>
+          {meaning.synonyms.length !== 0 && (
+            <div className="details synonyms">
+              <h3>Synonyms</h3>
+              {meaning.synonyms.map((synonyms, index) => (
+                <span key={index} onClick={() => setText(synonyms)}>
+                  {`${synonyms}, `}
+                </span>
+              ))}
+            </div>
+          )}
         </li>
       ))}
     </ul>
