@@ -29,8 +29,10 @@ const App = () => {
 
   useEffect(() => {
     if (!text.trim()) return;
-
-    dictionaryApi(text);
+    const debounce = setTimeout(() => {
+      dictionaryApi(text);
+    }, 1000);
+    return () => clearTimeout(debounce);
   }, [text]);
 
   const startSpeech = (text) => {
