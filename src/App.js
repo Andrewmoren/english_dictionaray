@@ -27,8 +27,16 @@ const App = () => {
       .catch((err) => setError(err));
   };
 
+  const reset = () => {
+    setIsSpeaking("");
+    setMeanings([]);
+    setPhonetics([]);
+    setWord("");
+    setError("");
+  };
+
   useEffect(() => {
-    if (!text.trim()) return;
+    if (!text.trim()) return reset();
     const debounce = setTimeout(() => {
       dictionaryApi(text);
     }, 1000);
