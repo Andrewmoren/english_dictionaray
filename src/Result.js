@@ -1,6 +1,6 @@
 import React from "react";
 
-const Result = ({ word, phonetics, meaning, setText }) => {
+const Result = (word, phonetics, meaning, setText) => {
   return (
     <ul>
       <li className="world">
@@ -10,7 +10,7 @@ const Result = ({ word, phonetics, meaning, setText }) => {
         ))}
       </li>
       {meaning.map((meaning, index) => (
-        <li className="contain">
+        <li key={index} className="contain">
           <h3>noun</h3>
 
           <div className="details meaning">

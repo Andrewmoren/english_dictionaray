@@ -18,7 +18,7 @@ const App = () => {
     fetch(url)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        console.log("Here", result);
         setMeanings(result[0].meanings);
         setPhonetics(result[0].phonetics);
         setWord(result[0].word);
