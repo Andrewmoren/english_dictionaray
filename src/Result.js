@@ -1,6 +1,6 @@
 import React from "react";
 
-const Result = (word, phonetics, meaning, setText) => {
+const Result = ({ word, phonetics, meaning, setText }) => {
   return (
     <ul>
       <li className="world">
