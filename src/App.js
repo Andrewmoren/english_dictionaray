@@ -22,7 +22,7 @@ const App = () => {
         setMeanings(result[0].meanings);
         setPhonetics(result[0].phonetics);
         setWord(result[0].word);
-        setError("");
+        setError(" ");
       })
       .catch((err) => setError(err));
   };

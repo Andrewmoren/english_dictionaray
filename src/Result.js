@@ -5,7 +5,7 @@ const Result = (word, phonetics, meaning, setText) => {
     <ul>
       <li className="world">
         <h2>{word}</h2>
-        {phonetics.map((phonetics, index) => (
+        {phonetics?.map((phonetics, index) => (
           <span key={index}>{phonetics.text}</span>
         ))}
       </li>
