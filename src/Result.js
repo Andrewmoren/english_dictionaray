@@ -16,7 +16,7 @@ const Result = (word, phonetics, meaning, setText) => {
           <div className="details meaning">
             <h3>Meaning</h3>
             {meaning.definitions.map((definitions, index) => (
-              <p key={index}>- {definitions.definitions}</p>
+              <p key={index}>-{definitions.definitions}</p>
             ))}
           </div>
           {meaning.synonyms.length !== 0 && (
