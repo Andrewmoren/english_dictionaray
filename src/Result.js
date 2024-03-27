@@ -22,6 +22,7 @@ const Result = (word, phonetics, meaning, setText) => {
           {meaning.synonyms.length !== 0 && (
             <div className="details synonyms">
               <h3>Synonyms</h3>
+              
               {meaning.synonyms.map((synonyms, index) => (
                 <span key={index} onClick={() => setText(synonyms)}>
                   {`${synonyms}, `}
